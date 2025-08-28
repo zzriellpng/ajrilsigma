@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Gabut</title>
+  <style>
+      body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh; /* biar full layar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden; /* biar nggak geser horizontal */
+}
+
+.container {
+  position: relative;
+  z-index: 10;         /* selalu di atas hearts */
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+      .hearts span {
+  position: fixed;
+  top: -10%;
+  font-size: 2rem;
+  animation: fall 6s linear infinite;
+  z-index: 1;
+}
+
+.hearts span:nth-child(1) {
+  left: 10%;
+  animation-duration: 6s;
+  font-size: 2rem;
+}
+
+.hearts span:nth-child(2) {
+  left: 30%;
+  animation-duration: 7s;
+  font-size: 2.5rem;
+}
+
+.hearts span:nth-child(3) {
+  left: 50%;
+  animation-duration: 8s;
+  font-size: 2.2rem;
+}
+
+.hearts span:nth-child(4) {
+  left: 70%;
+  animation-duration: 9s;
+  font-size: 2rem;
+}
+
+.hearts span:nth-child(5) {
+  left: 90%;
+  animation-duration: 10s;
+  font-size: 2.8rem;
+}
+
+@keyframes fall {
+  0% {
+    top: -10%;
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+    transform: translateX(50px) rotate(360deg);
+  }
+}
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+    transform: translateX(50px) rotate(360deg);
+  }
+}
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f0f0f0, #d6e6f2);
+      transition: background 0.5s, color 0.5s;
+    }
+    .dark {
+      background: #1a1a2e;
+      color: #f0f0f0;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 90%;
+      transition: background 0.5s, color 0.5s;
+}
+      
+    }
+    .dark .container {
+      background: #2a2a4a;
+      color: #f0f0f0;
+    }
+    h1, h2 {
+      margin-bottom: 15px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #ff7eb9;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #ff4da6;
+    }
+    .hidden {
+      display: none;
+    }
+    .choices {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .choices button {
+      flex: 1;
+      margin: 5px;
+    }
+    #loveContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+    }
+    .love {
+      position: absolute;
+      color: red;
+      font-size: 24px;
+      animation: fall 3s linear forwards;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    #sticker {
+      width: 100px;
+      margin-top: 15px;
+      display: none;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts">
+  <span>💖</span>
+  <span>💘</span>
+  <span>💜</span>
+  <span>💕</span>
+  <span>❤️</span>
+</div>
+  <div id="loveContainer"></div>
+  <div class="theme-toggle" onclick="toggleTheme()">Ubah Tema 🌙 / ☀️</div>
+
+  <div class="container">
+    <!-- Page 1 -->
+    <div id="page1">
+      <h1>Selamat Welcome 😎</h1>
+      <p>Aku pengen ngetes work apa ngga nya aja sih
+      sama kayak yang pernah aku bikin sebelum nya ini aku otak atik aja sih
+      bedanya ini pake javascript lagi belajar itu, ya walaupun JS ini lebih susah bahasa pemrograman nya
+      </p>
+      <button onclick="nextPage(2)">Mulai</button>
+    </div>
+
+<!-- ================= Page 2 ================= -->
+<div id="page2" class="hidden">
+  <h2>Aku mau nanya sesuatu nih 🤭</h2>
+  <form id="myForm">
+    <h3>Bolee ga sedikit cerita buat hari ini aku kepo bgt kamu ngapain aja hari ini hehee :)</h3>
+    <textarea name="jawaban" placeholder="Tulis jawaban kamu di sini..." required
+  style="width: 100%; height: 120px; padding:10px; border-radius:10px; font-size:16px;">
+</textarea>
+    <button type="submit">Kirim Jawaban</button>
+  </form>
+
+  <!-- Pesan setelah kirim -->
+  <div id="thanksMessage" style="display:none; margin-top:20px; font-size:18px; color:#d6336c;">
+    ✨ Makasih ya udah mau jawabbb
+  </div>
+
+  <button id="nextBtn" onclick="nextPage(3)" disabled>Lanjut ➡️</button>
+</div>
+
+<style>
+  .heart {
+    position: fixed;
+    top: -10px;
+    font-size: 24px;
+    color: #e25555;
+    animation: fall 3s linear forwards;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById("myForm");
+  const thanksMessage = document.getElementById("thanksMessage");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("https://formspree.io/f/xblarkzb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        form.style.display = "none"; // sembunyiin form
+        thanksMessage.style.display = "block"; // munculin pesan
+        nextBtn.disabled = false; // aktifkan tombol lanjut
+        alert("Jawaban kamu udah terkirim! 💌");
+
+        // efek hati berjatuhan
+        for (let i = 0; i < 15; i++) {
+          createHeart();
+        }
+      } else {
+        alert("Ups! Ada error, coba lagi ya.");
+      }
+    } catch (error) {
+      alert("Koneksi gagal, coba lagi.");
+    }
+  });
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 3000);
+  }
+</script>
+
+<script>
+document.getElementById("crushForm").addEventListener("submit", function(e){
+  e.preventDefault(); // biar ga langsung reload
+  let form = this;
+
+  // Kirim ke formspree pake fetch
+  fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if(response.ok){
+      alert("Jawabanmu sudah terkirim 💌");
+      form.classList.add("hidden");
+      document.getElementById("thanksMsg").classList.remove("hidden");
+    } else {
+      alert("Ups, gagal terkirim 😢 coba lagi ya");
+    }
+  }).catch(() => alert("Ada error jaringan 😭"));
+});
+</script>
+
+
+    <!-- Page 3 (final ganteng) -->
+    <div id="page3" class="hidden">
+      <h2>kamu tau ga mama ku bilang aku ganteng banget, menurut kamu, emng aku seganteng itu? 😏</h2>
+      <div class="choices">
+        <button id="yesBtn" onclick="jawabIya()">Iya</button>
+        <button id="noBtn" onclick="jawabTidak()">Engga</button>
+      </div>
+      <img id="sticker" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmY4bjhnbWVvMWs3YWltb3VrdGJqend1bzg3amFxeDZ1eDRhM3lxMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tBC3xo1Dipw5V3rxbq/giphy.gif" alt="cemberut">
+      <p id="respon" style="margin-top:20px; font-weight:bold; color:#ff4da6;"></p>
+    </div>
+
+    <!-- Page 4 (ending) -->
+    <div id="page4" class="hidden">
+      <h2>aku emg seganteng itu ya? 😍</h2>
+      <p> makasih udah jujur❤️</p>
+      <a href="https://wa.me/6289525461377?text=hai+ganteng" target="_blank">
+        <button>Te amo</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    let currentPage = 1;
+    let yesBtn, noBtn;
+    
+
+    function nextPage(page) {
+      document.getElementById("page" + currentPage).classList.add("hidden");
+      document.getElementById("page" + page).classList.remove("hidden");
+      currentPage = page;
+
+    
+      if(page === 3){
+        yesBtn = document.getElementById("yesBtn");
+        noBtn = document.getElementById("noBtn");
+      }
+    }
+
+    function jawabIya(){
+      document.getElementById("respon").innerText = "awoakwowk makasii, aku tau km pasti jawab iya😍";
+      yesBtn.style.transform = "scale(1.2)";
+      spawnLove();
+      setTimeout(()=>nextPage(4), 2000);
+    }
+
+    function jawabTidak(){
+      let currentScale = parseFloat(yesBtn.style.transform.replace("scale(", "").replace(")", "")) || 1;
+      yesBtn.style.transform = `scale(${currentScale + 0.3})`;
+      document.getElementById("sticker").style.display = "block";
+    }
+
+    function spawnLove(){
+      for(let i=0;i<10;i++){
+        let love = document.createElement("div");
+        love.classList.add("love");
+        love.innerText = "ty❤️";
+        love.style.left = Math.random()*100 + "vw";
+        love.style.fontSize = (20+Math.random()*20) + "px";
+        document.getElementById("loveContainer").appendChild(love);
+        setTimeout(()=>love.remove(), 3000);
+      }
+    }
+
+    function toggleTheme(){
+      document.body.classList.toggle("dark");
+    }
+  </script>
+</body>
+</html>
